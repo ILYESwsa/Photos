@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
-import androidx.compose.foundation.ripple.ripple
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
@@ -94,7 +93,7 @@ private fun GlassIconTapTarget(
             .clip(CircleShape)
             .clickable(
                 interactionSource = null,
-                indication = ripple(bounded = false, radius = 24.dp),
+                indication = null,
                 onClick = onClick,
             ),
         contentAlignment = Alignment.Center,

@@ -2,6 +2,7 @@ package com.glassphotos.app.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.gestures.transformable
 import androidx.compose.foundation.layout.Box
@@ -33,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.input.pointer.PointerInputScope
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -218,11 +220,11 @@ private fun ZoomableImage(
     }
 }
 
-private suspend fun androidx.compose.ui.input.pointer.PointerInputScope.detectVerticalSwipeToDismiss(
+private suspend fun PointerInputScope.detectVerticalSwipeToDismiss(
     onDrag: (Float) -> Unit,
     onEnd: () -> Unit,
 ) {
-    androidx.compose.foundation.gestures.detectVerticalDragGestures(
+    detectVerticalDragGestures(
         onVerticalDrag = { change, dragAmount ->
             change.consume()
             onDrag(dragAmount)
